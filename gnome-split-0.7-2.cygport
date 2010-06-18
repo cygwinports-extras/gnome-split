@@ -6,6 +6,8 @@ DESCRIPTION="GTK+ file splitter supporting several split formats"
 HOMEPAGE="http://www.gnome-split.org/"
 SRC_URI="http://launchpad.net/gnome-split/mainline/${PV}/+download/${P}.tar.bz2"
 
+PATCH_URI="0.7-java-gnome-deprecated.patch"
+
 MAKEOPTS+=" -j1"
 
 myconfigure() {
