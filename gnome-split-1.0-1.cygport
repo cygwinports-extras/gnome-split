@@ -1,0 +1,21 @@
+JAVA_CLASSPATH="gtk-4.0.jar:dbus.jar:debug-disable.jar:hexdump.jar:unix.jar:."
+inherit java
+
+DESCRIPTION="GTK+ file splitter supporting several split formats"
+HOMEPAGE="http://www.gnome-split.org/"
+SRC_URI="http://launchpad.net/gnome-split/mainline/${PV}/+download/${P}.tar.bz2"
+
+PATCH_URI="
+	1.0-cygwin.patch
+	1.0-install.patch
+	1.0-libnotify-0-7.patch
+"
+
+MAKEOPTS+=" -j1"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	./configure --prefix=/usr || error
+	cygmake all
+}

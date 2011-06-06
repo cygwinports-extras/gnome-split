@@ -1,0 +1,11 @@
+--- origsrc/gnome-split-1.0/src/org/gnome/split/gtk/DefaultEngineListener.java	2010-11-18 09:54:42.000000000 -0600
++++ src/gnome-split-1.0/src/org/gnome/split/gtk/DefaultEngineListener.java	2011-06-05 20:42:04.335508600 -0500
+@@ -272,7 +272,7 @@ public class DefaultEngineListener imple
+             gtk.getInfoBar().showInfo(title, body);
+         } else {
+             // Use notification
+-            Notification notify = new Notification(title, body, null, gtk.getAreaStatusIcon());
++            Notification notify = new Notification(title, body, null);
+             notify.setIcon(Constants.PROGRAM_LOGO);
+             notify.show();
+         }

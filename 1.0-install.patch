@@ -1,0 +1,13 @@
+--- origsrc/gnome-split-1.0/Makefile	2010-11-18 09:54:42.000000000 -0600
++++ src/gnome-split-1.0/Makefile	2011-06-05 21:10:01.083413100 -0500
+@@ -97,6 +97,10 @@ $(DESTDIR)$(PREFIX)/share/applications:
+ 	@/bin/echo -e "MKDIR\t$@/"
+ 	-mkdir -p $@
+ 
++$(DESTDIR)$(PREFIX)/share/mime/packages:
++	@/bin/echo -e "MKDIR\t$@/"
++	-mkdir -p $@
++
+ $(DESTDIR)$(PREFIX)/bin/gnome-split: \
+ 		$(DESTDIR)$(PREFIX)/bin \
+ 		tmp/launcher/gnome-split-install
