@@ -8,7 +8,6 @@ SRC_URI="http://launchpad.net/gnome-split/mainline/${PV}/+download/${P}.tar.bz2"
 PATCH_URI="
 	1.0-cygwin.patch
 	1.0-install.patch
-	1.0-libnotify-0-7.patch
 "
 
 MAKEOPTS+=" -j1"
