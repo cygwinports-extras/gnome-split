@@ -1,5 +1,5 @@
---- origsrc/gnome-split-1.0/configure	2010-11-18 09:54:42.000000000 -0600
-+++ src/gnome-split-1.0/configure	2011-06-05 20:58:58.603521400 -0500
+--- origsrc/gnome-split-1.2/configure	2013-08-02 12:06:47.663228700 -0500
++++ src/gnome-split-1.2/configure	2013-08-02 12:06:27.887097600 -0500
 @@ -140,6 +140,8 @@ sub check_prereq(\@$$@) {
  			$str .= "pkgadd";
  		} elsif ($os eq "arch") {
@@ -9,7 +9,7 @@
  		} else {
  			$str .= "[FIXME fetch and install command for this OS]"; 
  		}
-@@ -453,6 +455,9 @@ if ((-f "/etc/gentoo-release") || (-f "/
+@@ -462,6 +464,9 @@ if ((-f "/etc/gentoo-release") || (-f "/
  } elsif (-f "/etc/redhat-release") {
      output "RedHat";
      $os = "fedora";
@@ -19,44 +19,19 @@
  } elsif (-f "/etc/java/jpackage-release") {
      output "JPackage";
      $os = "fedora";
-@@ -701,6 +706,36 @@ if ($os eq "gentoo") {
- 		"Unix socket library",
- 		"libunixsocket-java",
- 		"/usr/share/java/unix.jar");
+@@ -532,6 +537,11 @@ if ($os eq "gentoo") {
+ 		"java-gnome library",
+ 		"libjava-gnome-java",
+ 		"/usr/share/java/gtk.jar");
 +} elsif ($os eq "cygwin") {
 +	check_prereq(@java_gnome_jar,
 +		"java-gnome library",
-+		"java-gnome4.0",
-+		"/usr/share/java/gtk.jar");
-+
-+	check_prereq(@dbus_java_jar,
-+		"dbus-java library",
-+		"java-dbus",
-+		"/usr/share/java/dbus.jar");
-+
-+	check_prereq(@debug_disable_jar,
-+		"matthew-debug disable library",
-+		"java-debug",
-+		"/usr/share/java/debug-disable.jar");
-+
-+	check_prereq(@debug_enable_jar,
-+		"matthew-debug enable library",
-+		"java-debug",
-+		"/usr/share/java/debug-enable.jar");
-+
-+	check_prereq(@hexdump_jar,
-+		"matthew-debug hexdump library",
-+		"java-hexdump",
-+		"/usr/share/java/hexdump.jar");
-+
-+	check_prereq(@unix_jar,
-+		"Unix socket library",
-+		"java-unix",
-+		"/usr/share/java/unix.jar");
++		"java-gnome4.1",
++		"/usr/share/java/gtk-4.1.jar");
  } else {
  	bail "failed!", "This OS not configured with defaults!\nTHIS IS AN INTERNAL ERROR, PLEASE FILE A BUG.";
  }
-@@ -999,6 +1034,15 @@ if ($os eq "gentoo") {
+@@ -824,6 +834,15 @@ if ($os eq "gentoo") {
  
  	check_jar($jar, "$vendor jar", $jar_candidate, "");
  	check_javadoc($javadoc, "$vendor javadoc", $javadoc_candidate, "");
@@ -72,7 +47,7 @@
  } else {
  	bail "failed!", "This OS not configured with a workable Java compiler checks!\nTHIS IS AN INTERNAL ERROR, PLEASE FILE A BUG.";
  }
-@@ -1278,6 +1322,8 @@ if ($os eq "gentoo") {
+@@ -1099,6 +1118,8 @@ if ($os eq "gentoo") {
  		$cacao_candidate = "/usr/bin/cacao";
  	}
  	check_runtime($cacao, "CACAO VM", $cacao_candidate, "");
